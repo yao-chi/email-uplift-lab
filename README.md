@@ -1,5 +1,8 @@
 # 邮件营销的增量评估与预算分配
 
+[![tests](https://github.com/yao-chi/email-uplift-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/yao-chi/email-uplift-lab/actions/workflows/tests.yml)
+![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-3776AB)
+
 > 用一场 64,000 人的真实随机对照实验（Hillstrom MineThatData E-Mail Analytics），
 > 回答三个业务问题：**发不发**（值不值得发）、**发给谁**（定向有没有用）、**发多少**（预算最优规模）。
 > 结论不是"模型很准"，而是"哪条结论有统计证据、哪条没有"。
