@@ -1,0 +1,4 @@
+﻿outcome,subgroup,uplift_focus,uplift_rest,diff,se,ci_low,ci_high,p_value,n_focus,n_rest
+visit,buyer_type=both,0.134444,0.069854,0.06459,0.013408,0.038312,0.090868,1.45e-06,4330,38283
+conversion,buyer_type=both,0.014994,0.005865,0.00913,0.004003,0.001284,0.016975,0.02256528,4330,38283
+spend,buyer_type=both,1.824986,0.648526,1.176461,0.69569,-0.187067,2.539989,0.0908235,4330,38283

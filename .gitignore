@@ -1,0 +1,22 @@
+# 字节码 / 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# 虚拟环境
+.venv/
+venv/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 本地临时产物（保留 outputs/ 下的图表与表格作为可复核证据）
+outputs/_tmp/
+*.log
