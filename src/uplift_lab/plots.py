@@ -83,9 +83,17 @@ def segment_uplift_bars(seg: pd.DataFrame, by: str, title: str, name: str) -> Pa
     ax.axvline(0, color="black", lw=0.9)
     ax.set_xlabel("Incremental conversion rate (percentage points)")
     ax.set_title(title)
-    for yi, v, n in zip(y, s["uplift"] * 100, s["n"]):
-        ax.text(v, yi, f"  {v:+.2f}pp (n={n:,})", va="center", fontsize=8,
-                ha="left" if v >= 0 else "right")
+    hi = (s["ci_high"] * 100).to_numpy()
+    lo = (s["ci_low"] * 100).to_numpy()
+    for yi, v, n, h, l in zip(y, s["uplift"] * 100, s["n"], hi, lo):
+        # 标签放在置信区间之外，避免压住误差线
+        if v >= 0:
+            ax.text(h, yi, f"  {v:+.2f}pp (n={n:,})", va="center", fontsize=8, ha="left")
+        else:
+            ax.text(l, yi, f"{v:+.2f}pp (n={n:,})  ", va="center", fontsize=8, ha="right")
+    lo_all, hi_all = min(float(lo.min()), 0.0), max(float(hi.max()), 0.0)
+    span = max(hi_all - lo_all, 1e-6)
+    ax.set_xlim(lo_all - 0.02 * span, hi_all + 0.28 * span)
     return _save(fig, name)
 
 
